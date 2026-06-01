@@ -3,7 +3,7 @@ import sqlite3, random, os
 from flask import Flask, render_template, request, jsonify, g
 
 app = Flask(__name__)
-DATABASE = 'kelompok.db'
+DATABASE = 'database.db'
 
 # ── Koneksi database ──────────────────────────────────────
 def get_db():
@@ -99,5 +99,5 @@ def reset_ke_db():
 if __name__ == '__main__':
     if not os.path.exists(DATABASE):
         init_db()
-        print('Database dibuat: kelompok.db')
+        print('Database dibuat: database.db')
     app.run(debug=True)

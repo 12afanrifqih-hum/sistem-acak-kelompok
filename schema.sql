@@ -1,0 +1,18 @@
+CREATE TABLE IF NOT EXISTS mahasiswa (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nama TEXT NOT NULL UNIQUE
+);
+
+CREATE TABLE IF NOT EXISTS mata_kuliah (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    mata_kuliah TEXT NOT NULL UNIQUE
+);
+
+CREATE TABLE IF NOT EXISTS peserta_matkul (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    mahasiswa_id INTEGER NOT NULL,
+    matkul_id INTEGER NOT NULL,
+
+    FOREIGN KEY (mahasiswa_id) REFERENCES mahasiswa(id),
+    FOREIGN KEY (matkul_id) REFERENCES mata_kuliah(id)
+);
